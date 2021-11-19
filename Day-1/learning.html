@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Learning App</title>
+    <style>
+        #container{
+            /* display: flex; */
+            display: grid;
+            height: 800px;
+            width: 800px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+             rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+             background-color:#fff;
+             margin: auto;
+             
+        }
+#h2{
+    color: darkorange;
+    text-align: center;
+    /* text-decoration: greenyellow; */
+    font-size: 60px;
+}
+    </style>
+</head>
+<body>
+
+  <div id ="container">
+      <h2 id ="h2">The Learning App</h2>
+      
+<button id ="obj">Object</button>
+
+<button id= "arr">Array</button> 
+<button id ="fun">Function</button>
+<button id ="str">Strings</button>
+<button id ="num">Number</button>
+<button id ="null">Null</button>
+<button id ="under">Underdefined</button>
+
+
+</div>
+</body>
+</html>
+<script>
+
+/*    
+Create a mini Js datatype learning app.
+    Create buttons namely ‘Objects’, ‘Arrays’, ‘Functions’, ‘Strings’, ‘Numbers’, ‘null’, ‘undefined’ in index.html.
+    On clicking any respective button, the user should be able to see 5-6 bullet-point information about that particular datatype.
+    For e.g If I click on ‘Object’, I should see information about Js objects like what are objects, how they work, mutability, etc.
+    Be creative! */
+
+    document.getElementById("obj").addEventListener("click",objfun);
+    function objfun(){
+       // console.log("i am object button")
+       var arrofobj = [
+           {
+               obj :"Object is known is as the brain of java script"
+           },
+           {
+               obj:"Object is non - primitive data"
+           },
+           {obj : "An object is a collection of related data and/or functionality (which usually consists of several variables and functions — which are called properties and methods when they are inside objects.) Let's work through an example to understand what they look like."}
+       ]
+       for(var a=0; a<arrofobj.length; a++){
+           document.write(arrofobj[a].obj + " "+ "<br>")
+
+       }
+      
+    }
+document.getElementById("arr").addEventListener("click", arrfun);
+
+function arrfun(){
+   // console.log("hello array")
+   var arrofobj = [
+           {
+               obj :"Arrays are list-like objects whose prototype has methods to perform traversal and mutation operations. Neither the length of a JavaScript array nor the types of its elements are fixed. Since an array's length can change at any time, and data can be stored at non-contiguous locations in the array, JavaScript arrays are not guaranteed to be dense; this depends on how the programmer chooses to use them. In general, these are convenient characteristics; but if these features are not desirable for your particular use, you might consider using typed arrays."
+           },
+           {
+               obj:"Array  is non - primitive data"
+           },
+           {obj : "Arrays cannot use strings as element indexes (as in an associative array) but must use integers. Setting or accessing via non-integers using bracket notation (or dot notation) will not set or retrieve an element from the array list itself, but will set or access a variable associated with that array's object property collection. The array's object properties and list of array elements are separate, and the array's traversal and mutation operations cannot be applied to these named properties."}
+       ]
+       for(var a=0; a<arrofobj.length; a++){
+           document.write(arrofobj[a].obj + " "+ "<br>")
+
+       }
+
+}
+
+
+document.getElementById("fun").addEventListener("click",funbtn);
+function funbtn(){
+    console.log("helo i am function")
+    var arrofobj = [
+           {
+               obj :"Functions are one of the fundamental building blocks in JavaScript. A function in JavaScript is similar to a procedure—a set of statements that performs a task or calculates a value, but for a procedure to qualify as a function, it should take some input and return an output where there is some obvious relationship between the input and the output. To use a function, you must define it somewhere in the scope from which you wish to call it."
+           },
+           {
+               obj:"Function is known as the heart of javascript"
+           },
+           {obj : "A function definition (also called a function declaration, or function statement) consists of the function keyword, followed by:"}
+       ]
+       for(var a=0; a<arrofobj.length; a++){
+           document.write(arrofobj[a].obj + " "+ "<br>")
+
+       }
+}
+
+
+document.getElementById("str").addEventListener("click", strfun);
+
+function strfun(){
+    console.log("here i am str")
+    var arrofobj = [
+           {
+               obj :"The String object is used to represent and manipulate a sequence of characters. "
+           },
+           {
+               obj:"Strinf is very important feautre of javascript"
+           },
+           {obj : "Strings are useful for holding data that can be represented in text form. Some of the most-used operations on strings are to check their length, to build and concatenate them using the + and += string operators, checking for the existence or location of substrings with the indexOf() method, or extracting substrings with the substring() method. "}
+       ]
+       for(var a=0; a<arrofobj.length; a++){
+           document.write(arrofobj[a].obj + " "+ "<br>")
+
+       }
+}
+
+document.getElementById("num").addEventListener("click", numfun);
+
+function numfun(){
+    console.log("here i am number")
+    var arrofobj = [
+           {
+               obj :"Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn. "
+           },
+           {
+               obj:"Number is a primitive data type "
+           },
+           {obj : " All types except objects define immutable values (that is, values which can't be changed). For example (and unlike in C), Strings are immutable. We refer to values of these types as 'Primitive Data Type'."}
+       ]
+       for(var a=0; a<arrofobj.length; a++){
+           document.write(arrofobj[a].obj + " "+ "<br>")
+
+       }
+}
+
+document.getElementById("null").addEventListener("click",nulfun);
+function nulfun(){
+    console.log("null is here")
+    var arrofobj = [
+           {
+               obj :" The value null represents the intentional absence of any object value. It is one of JavaScript's primitive values and is treated as falsy for boolean operations. "
+           },
+           {
+               obj:"NULL "
+           },
+           {obj : "The value null is written with a literal: null. null is not an identifier for a property of the global object, like undefined can be. Instead, null expresses a lack of identification, indicating that a variable points to no object. In APIs, null is often retrieved in a place where an object can be expected but no object is relevant. "}
+       ]
+       for(var a=0; a<arrofobj.length; a++){
+           document.write(arrofobj[a].obj + " "+ "<br>")
+
+       }
+
+}
+
+document.getElementById("under").addEventListener("click",underfun)
+
+function underfun(){
+    console.log("it's undefined")
+    var arrofobj = [
+           {
+               obj :"The global undefined property represents the primitive value undefined. It is one of JavaScript's primitive types  "
+           },
+           {
+               obj:"UNDEFINED "
+           },
+           {obj : " However, there is another alternative. JavaScript is a statically scoped language, so knowing if a variable is declared can be read by seeing whether it is declared in an enclosing context. "}
+       ]
+       for(var a=0; a<arrofobj.length; a++){
+           document.write(arrofobj[a].obj + " "+ "<br>")
+
+       }
+}
+
+
+</script>
