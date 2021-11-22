@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        .navbar{
+            background-color: black;
+            border-radius: 4px;
+           
+        }
+        .navbar ul{
+            overflow: auto;
+        }
+        .navbar li{
+            float:right;
+            list-style-type: none;
+            margin: 13px 13px;
+
+        }
+        .navbar li a{
+            padding: 5px 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            margin: 5px 5px;;
+           
+            
+        }
+        .navbar input{
+            border-radius: 15px;
+            border: 2px solid black;
+            padding: 3px 4px;
+            margin-top: 10px;
+            width: 130px;
+        }
+    </style>
+    <link rel="stylesheet" href="Signup.css">
+</head>
+<body>
+    <header>
+        <nav class ="navbar">
+            <ul>
+                <li> <a href="Signup.html">Sign up</a></li>
+                <li> <a href="Login">Login</a> </li>
+                <li> <a href="Home">Home</a>  </li>
+                <div class ="search">
+                    <input type="text" name ="search" id ="search" placeholder="Search this Website">
+                </div>
+            </ul>
+        </nav>
+    </header> 
+<!--  body part -- main container begin> -->
+    <div id = container>   <h1 id ="h1"> Sign up</h1> 
+         <label class = "lable">Enter Your First Name *</label>
+         <br>
+        <input id = "fname" type="text" placeholder="Enter Your First Name">
+        <br><br><br>
+
+
+        <label class = "lable">Enter Your Last Name *</label>
+        <br>
+       <input id = "lname" type="text" placeholder="Enter Your Last Name">
+       <br><br><br>
+
+
+       <label class = "lable">age*</label>
+       <br>
+      <input id = "age" type="number" placeholder="Enter Your Email - ID">
+      <br><br><br>
+
+       
+       <label class = "lable">Contact Number*</label>
+       <br>
+      <input id = "contact" type="number" placeholder="Enter Your Contact Number">
+      <br><br><br>
+
+
+      <label class = "lable">Email *</label>
+      <br>
+     <input id = "Email" type="email" placeholder="Enter Your Email - ID">
+     <br><br><br>
+
+
+
+     <label class ="lable">Gender</label>
+     <br>
+     <select name="" id="select">
+         <option value="Male">Male</option>
+         <option value="Female">Female</option>
+         <option value="Other">Other</option>
+     </select>
+     <br><br><br><br><br>
+
+
+
+     <button id = "button"> Submit</button>
+    
+    </div>
+  
+
+</body>
+</html>

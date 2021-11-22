@@ -33,4 +33,7 @@ function push1 (n,x){
 
 
 push1(5,0);
+//write a function to add two number
+
+
 

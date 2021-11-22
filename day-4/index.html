@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous</title>
+</head>
+<body>
+    <h1>Asynchronous</h1>
+  
+    <style>
+        form {
+          width: 10%;
+          margin: 5%;
+        }
+        input {
+          margin-top: 2%;
+        }
+      </style>
+    
+      <body>
+        <form >
+          <input type="number" id="number" placeholder="Card number" />
+          <input type="number" id="cvv" placeholder="CVV" />
+    
+          <input type="number" id="otp" placeholder="OTP" />
+    
+          <input type="submit" id = "submit" />
+        </form>
+    
+
+</body>
+</html>
+<script >
+    document.getElementById("submit").addEventListener("submit", cardfun);
+
+    function cardfun(e){
+        e.preventDefault();
+        console.log("here")
+        const data  ={
+            number:document.getElementById("number").value,
+            cvv:document.getElementById("CVV").value,
+            otp:document.getElementById("OTP").value,
+        }
+        console.log(data)
+    }
+</script>
