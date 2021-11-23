@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccinination</title>
+</head>
+<body>
+    <h1>Vaccination</h1>
+
+    name: <input type="text" id = "name">
+    <button onclick="registration()">Registration</button>
+</body>
+</html>
+<script >
+    
+    let queue = ["Babu bhaiya","raju","shyam","totlaseth"];
+    function registration(){
+        let name = document.getElementById("name").value;
+        console.log(name)
+
+        let message =`${name} your registration is successful. Please wait for your turn`;
+        alert(message);
+
+
+        queue.push(name);
+        
+
+        let mypromise = new promise(function(resolve, reject){
+            // do we have to keep on checking is our fulfill or nor?
+
+            setInterval(function (){
+                
+                if(queue[0]===name){
+                    resolve(`${name} your  vaccination is completed`) ;
+    
+                }
+            } ,1000)
+        });
+        mypromise.then(function (res){
+            alert(res)
+        })
+
+    }
+
+    function startvaccination(){
+        queue.shift();
+        console.log("queue", queue)
+
+        if(queue.length ===0){
+            clearInterval(id)
+        }
+    }
+
+
+let id = setInterval(startvaccination,3000)
+
+
+//1 > registration
+// 2> promise (waiting) 
+// 3> startVaccination
+// 4> clear interval
+
+
+</script>

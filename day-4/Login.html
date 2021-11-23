@@ -62,7 +62,7 @@
         <br><br><br>
         <label class = "lable">Password *</label>
         <br>
-        <input id = "password" type="password" placeholder="Enter Your Password">
+        <input id = "Loginpassword" type="password" placeholder="Enter Your Password">
         <br><br><br><br><br>
 
         <button id ="LoginButton"> Submit</button>
@@ -80,10 +80,58 @@
 
 
 
-  //  var array = JSON.parse(localStorage.getItem("userdatajoin")) || []
+   var array = JSON.parse(localStorage.getItem("userdatajoin")) || []
 
     function LoginFun(){
         console.log("here")
        // console.log("Login Array"+userdatajoin)
+       var email = document.getElementById("email").value;
+       var Loginpassword = document.getElementById("Loginpassword").value;
+
+       console.log(email, Loginpassword)
+
+       if(email.length ===0 && Loginpassword.length ===0 ){
+           alert("Please Enter your Email ID   ")
+       }
+//  login validating or checking credential of the user  in below code
+
+if(email =="admin" && Loginpassword  =="admin"){
+     alert("Welcome to Admin page");
+    window.location.href = "file:///C:/Users/ASUS_X510/Desktop/myfabindiacode/sriadmin.html"
+}
+else {
+console.log("not an admin")
+var flag = false;
+for(var i =0; i<array.length; i++){
+    if(array[i].UserEmail  ==email && array[i].userConfirmpassword==Loginpassword) {
+        alert("Sign in Successful");
+        window.location.href ="Home.html" 
+        flag = true;
+        break;
+
+    } 
+ 
+}
+
+if(flag==false){
+    alert("Please Enter Correct Credential !")
+}
+
+
+}
+
+
+//  login validating or checking credential of the user  in above code
+ 
+
+       
+
+
+
+
+
+
+
     }
+
 </script>
