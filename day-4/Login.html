@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home </title>
+    <title>Login </title>
     <style>
         .navbar{
             background-color: black;
@@ -37,7 +37,7 @@
             width: 130px;
         }
     </style>
-    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="Login.css">
 </head>
 <body>
     <header>
@@ -53,7 +53,37 @@
         </nav>
     </header> 
     <!-- body part begin  -->
-    <div class = "container">Box1</div>
+    <div class = "container">Login
+        <br><br><br><br><br>
+
+        <label class = "lable">Email</label>
+        <br>
+        <input type="email" name="" id="email" placeholder="Enter Your Email-Id">
+        <br><br><br>
+        <label class = "lable">Password *</label>
+        <br>
+        <input id = "password" type="password" placeholder="Enter Your Password">
+        <br><br><br><br><br>
+
+        <button id ="LoginButton"> Submit</button>
+
+
+
+    </div>
+
 
 </body>
 </html>
+<script >
+    document.getElementById("LoginButton").addEventListener("click",LoginFun);
+
+
+
+
+  //  var array = JSON.parse(localStorage.getItem("userdatajoin")) || []
+
+    function LoginFun(){
+        console.log("here")
+       // console.log("Login Array"+userdatajoin)
+    }
+</script>

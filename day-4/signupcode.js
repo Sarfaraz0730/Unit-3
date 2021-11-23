@@ -52,7 +52,7 @@ localStorage.setItem("userdatajoin" ,JSON.stringify(array));
 
  else {
      
-    window.location.href ="Home.html";
+    window.location.href ="Login.html";
     alert("Your Account has been created")
   }
    
