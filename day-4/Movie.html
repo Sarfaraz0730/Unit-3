@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Movie</title>
+
     <style>
         .navbar{
             background-color: black;
@@ -51,54 +52,25 @@
             </ul>
         </nav>
     </header> 
-    <input type="text" id="url">
-    <button onclick="storeImages()">Submit image URL</button>
-    <button onclick="gotoSlideshow()">Watch Slideshow</button>
-
-    <div id="images">
-
-    </div>
-    <img src="https://photos.google.com/photo/AF1QipNbJWRcp7hyjQ69IZAzcS-iMiJukAH3BiyTEeD2" alt="">
-
-
-
-
+    <!-- the above code is for heading  -->
+    <div id="div1">The text above has been created dynamically.</div>
 </body>
 </html>
 <script>
 
+    var h1 = document.createElement("h1")
+   function addElement () {
+//   // create a new div element
+//   const newDiv = document.createElement("div");
 
-    function gotoSlideshow(){
-    
-        window.location.href='slideshow.html'
-    }
-    
-    
-        function storeImages()
-        {
-    
-            var image=document.getElementById('url').value
-    
-            var images=localStorage.getItem('images')
-    
-           if(images==null){
-    
-            images=[]
-    
-            console.log(images)
-           }
-           else{
-    
-            images= JSON.parse(localStorage.getItem('images'))
-           }
-    
-          
-    
-           images.push(image)
-    
-           localStorage.setItem('images',JSON.stringify(images))
-           
-        }
-    
-    </script>
+//   // and give it some content
+//   const newContent = document.createTextNode("Hi there and greetings!");
 
+//   // add the text node to the newly created div
+//   newDiv.appendChild(newContent);
+
+//   // add the newly created element and its content into the DOM
+//   const currentDiv = document.getElementById("div1");
+//   document.body.insertBefore(newDiv, currentDiv);
+}
+</script>

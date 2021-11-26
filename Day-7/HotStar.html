@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    input {
+      width: 200px;
+    }
+
+    #movies {
+      height: 200px;
+      width: 206px;
+
+      border: solid 1px black;
+      border-top: none;
+      overflow: scroll;
+    }
+  </style>
+  <body>
+    <input oninput="displayMovies()" type="text" id="query" />
+    <div id="movies"></div>
+  </body>
+</html>
+
+<script>
+ 
+ let api_key = "7c3d6bd8"
+ let movie
+ async function searchMovies(){
+     try{ 
+     let name = document.getElementById("query").value;
+     
+     let response = await fetch(`http://www.omdbapi.com/?apikey=${name}&t=${input}`);
+     
+     let  data = await response.json();
+     console.log("data : " , data);
+     return.data.search
+
+     } catch(err){
+         console.log("err : ", err)
+     }
+ }
+
+
+async function displayMovies(){
+    movie_div.innerHTML =null;
+   let Movies_data = await searchMovies();
+   if(Movies_data===undefined){
+       return false;
+   }
+
+   console.log("Movies_data : ", Movies_data)
+
+   Movies_data.forEach(function(movie){
+       let p = document.createElement("p")
+       p.innerText = movie.Title
+       movie_div.append(p);
+   });
+}
+
+
+
+
+
+</script>
