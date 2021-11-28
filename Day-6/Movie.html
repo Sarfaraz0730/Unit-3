@@ -7,32 +7,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movies</title>
   <style>
-    .box2{
-      height: 800px;
-      width: 50%;
-      border: 1px solid red;
+    body{
+      background-color:pink;
     }
+    .name{
+      
+
+
+
+
+      height: 50px;
+      width:90%;
+      border-radius: 20px;
+      background-color: blanchedalmond;
+      margin-left: 10px;
+    }
+    #search1{
+      margin-top: 10px;
+      margin-left: 30px;
+      padding: 10px 10px;
+      
+    }
+    #name{
+      margin-top: 10px;
+      margin-left: 30px;
+      padding: 10px 10px;
+      border-radius: 2px;
+      border: none;
+      border: 1px solid pink;
+    
+    }
+    #h1{
+      /* margin-left: 10px; */
+      text-align: center;
+    }
+    .navbar{
+            background-color: black;
+            border-radius: 4px;
+           
+        }
+        .navbar ul{
+            overflow: auto;
+        }
+        .navbar li{
+            float:right;
+            list-style-type: none;
+            margin: 13px 13px;
+
+        }
+        .navbar li a{
+            padding: 5px 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            margin: 5px 5px;;
+           
+            
+        }
+        .navbar input{
+            border-radius: 15px;
+            border: 2px solid black;
+            padding: 3px 4px;
+            margin-top: 10px;
+            width: 130px;
+        }
   </style>
+
 </head>
 <body>
-  <input type="text" name="" id="name">
-  <button onclick="getmovie()">Search</button>
+  <header>
+    <nav class ="navbar">
+        <ul>
+            <li> <a href="Signup.html">Sign up</a></li>
+            <li> <a href="Login">Login</a> </li>
+            <li> <a href="Home.html">Home</a>  </li>
+            <div class ="search">
+                <input type="text" name ="search" id ="search" placeholder="Search this Website">
+            </div>
+        </ul>
+    </nav>
+</header> 
 
-  <div class = "box2">
-    <h2>Hello Views</h2>
-    <h1> Title : <span id "title" class ="value-by-api"> </span> </h1>
-  </div>
+
+
+
+
+
+  <!-- above code is for header  -->
+<div class = "name">
+
+  <h1 id = "h1">Search Movie</h1>
+</div>
+  <input type="text" name="" id="name" placeholder="Enter Movie Name ">
+  <button onclick="getmovie()" id ="search1"> Search</button>
+
+    <div id = "wall"> </div>
 </body>
 </html>
 
 <script>
-
+var wall = document.getElementById("wall")
   
-  
+let key = "fdf89b";
   
   async function getmovie(){
+    
+    try{ 
+
     console.log("here")
-    let key = "fdf89b";
+  
     
     let input = document.getElementById("name").value
 
@@ -40,6 +123,35 @@
     let res =await fetch(url)
     let data =await res.json();
     console.log("data : " , data)
+    appnedMovies(data)
+     
+    }
+    catch(error){
+      console.log(error)
+    }
+
+  }
+
+  function appnedMovies(movie){
+    wall.innerHTMl = ""
+    let main = document.createElement("div")
+    let img =document.createElement("img")
+     img.src =movie.Poster
+    let title = document.createElement("h4")
+    title.innerHTML=movie.Title
+    let release = document.createElement("h4")
+    release.innerHTML= movie.Released
+    let year = document.createElement("p")
+    year.innerHTML=movie.Year
+    let rating = document.createElement("h4")
+    rating.innerHTML=movie.Rated
+    main.append(img,title,release,year)
+
+ wall.append(main)
+
+
+
+
   }
 
 </script>

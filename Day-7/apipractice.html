@@ -5,13 +5,41 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movies</title>
+  <title>API</title>
   <style>
+    body{
+      background-color:pink;
+    }
     .name{
+      
+
+
+
+
       height: 50px;
-      width: 80%;
+      width:90%;
       border-radius: 20px;
       background-color: blanchedalmond;
+      margin-left: 10px;
+    }
+    #search1{
+      margin-top: 10px;
+      margin-left: 30px;
+      padding: 10px 10px;
+      
+    }
+    #name{
+      margin-top: 10px;
+      margin-left: 30px;
+      padding: 10px 10px;
+      border-radius: 2px;
+      border: none;
+      border: 1px solid pink;
+    
+    }
+    #h1{
+      /* margin-left: 10px; */
+      text-align: center;
     }
     .navbar{
             background-color: black;
@@ -68,10 +96,10 @@
   <!-- above code is for header  -->
 <div class = "name">
 
-  <h1>Search Movie</h1>
+  <h1 id = "h1">API PRACTICE</h1>
 </div>
   <input type="text" name="" id="name" placeholder="Enter Movie Name ">
-  <button onclick="getmovie()">Search</button>
+  <button onclick="getmovie()" id ="search1"> Search</button>
 
     <div id = "wall"> </div>
 </body>
@@ -80,7 +108,7 @@
 <script>
 var wall = document.getElementById("wall")
   
-let key = "fdf89b";
+let key = "129394";
   
   async function getmovie(){
     
@@ -91,7 +119,8 @@ let key = "fdf89b";
     
     let input = document.getElementById("name").value
 
-    let url = `http://www.omdbapi.com/?apikey=${key}&t=${input}`
+    // let url = `http://www.omdbapi.com/?apikey=${key}&t=${input}`
+    let url = `https://quotepark.com/authors/carl-r-rogers/`
     let res =await fetch(url)
     let data =await res.json();
     console.log("data : " , data)
@@ -113,10 +142,17 @@ let key = "fdf89b";
     title.innerHTML=movie.Title
     let release = document.createElement("h4")
     release.innerHTML= movie.Released
-    // let year = document.createElement("p")
-    // year.innerHTML=movie.Year
-    main.append(img,title,release)
+    let year = document.createElement("p")
+    year.innerHTML=movie.Year
+    let rating = document.createElement("h4")
+    rating.innerHTML=movie.Rated
+    main.append(img,title,release,year)
+
  wall.append(main)
+
+
+
+
   }
 
 </script>

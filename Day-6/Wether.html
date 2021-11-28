@@ -9,19 +9,20 @@
     <h1>Weather</h1>
 </head>
 <body>
-    <input type="text" name="" id="name">
+    <input type="text" name="" id="city">
     <button onclick="getWeather()">Search</button>
 </body>
 </html>
 <script>
 
     
-    let key ="7aa631f3a4321b8bc8c0f5187eef42aa";
+    let key ="0891df074c3224c99aae65cbf4a43f46";
 async function getWeather(){
     let city = document.getElementById("city").value;
-let url = `https://ap1.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
+    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city},uk&APPID=0891df074c3224c99aae65cbf4a43f46`
+  //  let url = `api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}`
 
- console.log(url)
+    console.log(url)
 }
 
 
