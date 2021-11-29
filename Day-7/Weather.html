@@ -4,14 +4,116 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEATHER</title>
+    <title>Document</title>
+    <style>
+        .border{
+            border: 1px solid lightgreen;
+            height: 300px;
+            width: 100%;
+            background-color:pink;
+        }
+        
+        #box{
+            border: 1px solid black;
+            height: 60vh;
+            width: 45%;
+            background-color: orange;
+            
+        }
+        #map{
+            border: 1px solid green;
+            height: 300px;
+            width: 44.5%;
+            margin: auto;
+            border-radius: 30px;
+            
+        }
+    </style>
 </head>
 <body>
-        <H1>WEATHER App</H1>
+  <h1>  Find Weather </h1>
+    <input id="city" type="text">
+    <button id="serch" onclick="wetherPoint()">Click</button>
+ <div class="border">
+    
+    <div id="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241316.64332144568!2d72.74109713631994!3d19.082522324824836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1638108484839!5m2!1sen!2sin" width="600" height="300" style="border:0;border-radius: 30px; " allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</div>
+    
 </body>
 </html>
 
+<script>
+    const key = "0891df074c3224c99aae65cbf4a43f46"
+    let body = document.querySelector("body");
 
-let key = "0891df074c3224c99aae65cbf4a43f46"
+    //let url = `https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid=${key}`;
+//----------------------------------------------------
+    async function wetherPoint(){
 
-let url = `api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}`
+        var ser = document.getElementById("city").value;
+
+
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${ser}&appid=${key}&units=metric`;
+
+        try{
+            var res = await fetch(url);
+            let info = await res.json();
+            console.log("info:",info);
+
+            displayWeather(info);
+            
+        }
+        catch(err){
+         console.log("err:",err)
+        }
+
+    }
+    //----------------------------------------------
+
+     function displayWeather(data){
+        //weth_data.map(function(data){
+        
+        var main = document.createElement("div");
+        main.setAttribute("id","box");
+
+        var title = document.createElement("h3");
+        title.innerHTML ="City:" + data.name;
+
+        var humid = document.createElement("h4");
+        humid.innerHTML ="Humidity:" +" "+ data.main.humidity;
+        
+        var temp = document.createElement("h4");
+        temp.innerHTML ="Temperature:" +" "+ Math.round(data.main.temp) + "°C";
+
+        var time = document.createElement("h4");
+        time.innerHTML ="Time:" +" "+ new Date();
+
+        var tMax = document.createElement("h4");
+        tMax.innerHTML ="Max temp:" +" "+ data.main.temp_max;
+        
+        var tMin  = document.createElement("h4");
+        tMin.innerHTML ="Min temp:" +" "+ data.main.temp_min;
+
+        var sunR = document.createElement("h4");
+        sunR.innerHTML ="Sunrise:" + data.sys.sunrise;
+
+        var sunS = document.createElement("h4");
+        sunS.innerHTML ="Sunset:" + data.sys.sunset;
+
+        var wind = document.createElement("h4");
+        wind.innerHTML ="Wind:" + data.wind.speed ; 
+
+
+        
+        main.append(title,humid,temp,tMax,tMin,sunR,sunS,wind,time);
+
+        body.append(main);
+        
+
+       // })
+   }
+   
+   
+</script>

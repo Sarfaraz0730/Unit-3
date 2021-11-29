@@ -5,12 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fetch</title>
+    <style>
+        #wall{
+            display: grid;
+            grid-template-columns:repeat(3,20%);
+            grid-gap:5%;
+            justify-content: center;
+            border: 1px solid red;
+        }
+    </style>
 </head>
 <body>
     <h1>Fetch</h1>
+    <div id ="wall"></div>
+
 </body>
 </html>
 <script>
-    let url =`http://127.0.0.1:5500/Day-6/Movie.html`
-    console.log(typeof(fetch(url)))
+let url = `https://reqres.in/api/users?page=2`
+let wall = document.getElementById("wall")
+let data;
+fetch(url).then(function(response){
+
+
+    return response.json()
+   
+
+}).then(function(res){
+    console.log("res : ",res)//
+     data = res.data;
+  appendProduct(data)
+
+})
+.catch(function (error){
+    console.log("found an error in my fetch  : ", error)
+})
+
+
+function appendProduct(users_array){
+ users_array.forEach(function(user){
+    
+    let div = document.createElement("div")
+    let img = document.createElement("img")
+    img.scr =user.avatar;
+
+    let name = document.createElement("p")
+    name.innerText =`${user.first_name} ${user.last_name}`
+    let email = document.createElement("p")
+    email.innerText=user.email;
+
+    div.append(img,name,email);
+    wall.append(div)
+
+ });
+}
+   
+
 </script>
