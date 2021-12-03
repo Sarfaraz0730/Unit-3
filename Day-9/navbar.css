@@ -1,0 +1,29 @@
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 4%;
+ border: 1px solid black;
+
+}
+#option{
+    display: flex;
+    justify-content: space-between;
+    gap:10px;
+    margin-right: 20px;
+  
+
+}
+a {
+    text-decoration: none;
+}
+
+#data{
+    display: grid;
+    grid-template-columns: repeat(4,25%);
+    grid-gap:20px;
+    justify-content:center;
+    padding: 5%;
+}
+img{
+    width: 100px;
+}
